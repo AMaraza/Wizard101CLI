@@ -1,0 +1,3 @@
+/Users/ally/CLionProjects/Wiz101/cmake-build-debug/CMakeFiles/Wiz101.dir
+/Users/ally/CLionProjects/Wiz101/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ally/CLionProjects/Wiz101/cmake-build-debug/CMakeFiles/rebuild_cache.dir
