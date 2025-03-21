@@ -1,6 +1,7 @@
 #ifndef SPELLS_H
 #define SPELLS_H
 #include <iostream>
+#include <memory>
 #include <utility>
 #include <vector>
 
@@ -10,25 +11,20 @@ class Spell{
         std::string spellName;
         std::string spellSchool;
         std::string spellDescription;
+        std::string spellType;
         int spellAccuracy;
         int spellPipCount;
-        Spell(std::string name, std::string school, std::string description, int accuracy, int pipCount) : spellName(std::move(name)), spellSchool(std::move(school)), spellDescription(std::move(description)), spellAccuracy(accuracy), spellPipCount(pipCount) {};
+        int spellLowerRange;
+        int spellUpperRange;
+        Spell(std::string name, std::string school, std::string description, std::string type, int accuracy, int pipCount, int lowerRange, int upperRange)
+        : spellName(std::move(name)), spellSchool(std::move(school)), spellDescription(std::move(description)), spellType(std::move(type)) ,spellAccuracy(accuracy), spellPipCount(pipCount), spellLowerRange(lowerRange), spellUpperRange(upperRange) {};
 };
 
-class DamageSpell : public Spell{
-    public:
-        int lowerDamageRange;
-        int upperDamageRange;
-        DamageSpell(std::string name, std::string school, std::string description, int accuracy, int pipCount, int lowerDamage, int upperDamage) : Spell(std::move(name), std::move(school), std::move(description), accuracy, pipCount), lowerDamageRange(lowerDamage), upperDamageRange(upperDamage) {};
-};
+std::vector<Spell> createSpells();
 
-class HealSpell : public Spell {
-    public:
-        int spellHealAmount;
-        HealSpell(std::string name, std::string school, std::string description, int accuracy, int pipCount, int healAmount) : Spell(std::move(name), std::move(school), std::move(description), accuracy, pipCount), spellHealAmount(healAmount) {};
-};
 
-inline void displayDamageSpells(const std::vector<DamageSpell>& damageSpells) {
+
+/*inline void displayDamageSpells(const std::vector<DamageSpell>& damageSpells) {
     std::cout << "Damage Spells:" << std::endl;
     for (int i = 0; i < damageSpells.size(); i++) {
         std::cout << i+1 << ". " << damageSpells[i].spellName << " " << damageSpells[i].spellDescription << std::endl;
@@ -61,6 +57,6 @@ inline std::vector<HealSpell> createHealSpells() {
     return {
     {"Heartbeat", "life", "Heals 245 Health, 90% Accuracy, 1 Pip", 90, 1, 245}
     };
-}
+}*/
 
 #endif //SPELLS_H

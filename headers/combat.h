@@ -3,9 +3,14 @@
 #include <iostream>
 #include <vector>
 #include "spells.h"
+#include "player.h"
 #include <random>
 
-inline int castDamageSpell(int spellChoice, std::vector<DamageSpell>& spells) {
+void castSpell(const std::vector<Spell>& spells, int choice, Player& player, Enemy& enemy, bool playerTurn);
+
+
+
+/*inline int castDamageSpell(int spellChoice, std::vector<DamageSpell>& spells) {
     int minDamage = 0, maxDamage = 0;
     int finalDamage = 0;
     std::random_device rd;
@@ -42,6 +47,6 @@ inline int castHealSpell(int spellChoice, std::vector<HealSpell>& spells) {
        }
     }
     return 0;
-}
+}*/
 
 #endif //COMBAT_H
